@@ -1,0 +1,12 @@
+.env
+*.md
+.idea
+.git
+.gitignore
+.dockerignore
+*.iws
+*.iml
+*.ipr
+!**/src/main/**/build/
+!**/src/test/**/build/
+test/

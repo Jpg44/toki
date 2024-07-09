@@ -1,0 +1,38 @@
+
+server:
+  port: ${PORT}
+spring:
+  config:
+    activate:
+      on-profile: prod
+  redis:
+    host: ${REDISDB-HOST-PROD}
+    password: ${REDISDB-PASSWORD-PROD}
+    port: ${REDISDB-PORT-PROD}
+
+  # Mysql Database 설정
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: 'jdbc:mysql://${MYSQLDB-URL}/${MYSQLDB-NAME-PROD}?useUnicode=true&serverTimezone=Asia/Seoul'
+    username: ${MYSQLDB-NAME-PROD}
+    password: ${MYSQLDB-PASSWORD-PROD}
+
+  # JPA 설정
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: none        # DB 테이블 전략 (none, create, create-drop, update, validate)
+    properties:
+      hibernate:
+        format_sql: true      #
+        show_sql: true        #
+
+
+
+
+logging:
+  level:
+    web: error
+    sql: error
+
+

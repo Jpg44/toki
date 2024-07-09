@@ -1,0 +1,43 @@
+
+server:
+  port: 8081
+spring:
+  config:
+    activate:
+      on-profile: local
+  redis:
+    host: localhost
+    password: 1234
+    port: 6379
+
+  # H2 Database 설정
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: 'jdbc:h2:mem:testdb:MODE=MySQL'   # H2 DB 모드 설정 (In-Memory Mode)
+    #url: 'jdbc:h2:~/test'    # H2 DB  (Embedded Mode)
+    username: username
+    password: ""
+
+  # H2 Console 설정
+  h2:
+    console: # H2 DB 설정
+      enabled: true           # H2 Console 활성화여부
+      path: /h2-console       # H2 Console 주소
+
+  # JPA 설정
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create        # DB 테이블 전략 (none, create, create-drop, update, validate)
+    properties:
+      hibernate:
+        format_sql: true      #
+        show_sql: true        #
+
+
+
+logging:
+  level:
+    root: debug
+
+

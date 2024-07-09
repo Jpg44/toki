@@ -1,0 +1,19 @@
+
+# -Dspring.profiles.active=
+
+spring:
+  profiles:
+    group:
+      local: local
+      dev: dev
+      prod: prod
+  config:
+    import: "application-secret.yml"
+
+
+
+logging:
+  level:
+    web: debug
+
+
